@@ -51,7 +51,6 @@ app.use('/images', express.static(destinationFolder, {
   setHeaders: setCustomCacheControl
 }))
 
-
 var lightSettings = {
   lightStart: 0,
   lightFinish: 500,
@@ -543,7 +542,7 @@ io.on('connection', function(socket) {
       city: data.city
     };
 
-    return JSON.stringify(cfg);
+    return JSON.stringify(cfg, null, 2);
   }
 
   socket.on('get-galleries', function() {
@@ -769,6 +768,26 @@ io.on('connection', function(socket) {
 
   socket.on('get-data', function(cmd) {
     reloadData();
+  });
+  socket.on('save-webcam-photo', function (data) {
+    function makeDir(newDir){
+      try {
+        fs.statSync(newDir);
+      }
+      catch(err) {
+        fs.mkdirSync(newDir);
+      }
+    }
+    var id = data.id || 'not_configured_session';
+    var newDir = destinationFolder + id + '/';
+    makeDir(newDir);
+    var normalDir = newDir + 'normal/';
+	  var projectionDir = newDir + 'projection/';
+    makeDir(normalDir);
+	  makeDir(projectionDir);
+    const base64Data = data.photo.replace(/^data:([A-Za-z-+/]+);base64,/, '');
+    fs.writeFileSync(newDir + 'normal/200.jpg', base64Data, 'base64');
+	  fs.writeFileSync(newDir + 'projection/200.jpg', base64Data, 'base64');
   });
 });
 
