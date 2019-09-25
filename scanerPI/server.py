@@ -15,9 +15,6 @@ configFile = '/home/pi/camera.json';
 HOST = '192.168.1.99'
 # HOST = '192.168.10.2'
 
-camera = PiCamera()
-camera.rotation = 180
-
 PORT = 81
 
 CODE_PING_PONG = 100
