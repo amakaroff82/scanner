@@ -268,6 +268,7 @@ class SocketHandler:
         thumbFileName = './thumb.jpg'
         self.camera = picamera.PiCamera()
         self.applySettings()
+        self.camera.rotation = 180
         self.camera.resolution = (160, 90)
         self.updateBusyState(True)
         self.camera.capture_sequence([thumbFileName], 'jpeg', use_video_port=True)
@@ -281,6 +282,7 @@ class SocketHandler:
         previewFileName = './preview.jpg'
         self.camera = picamera.PiCamera()
         self.applySettings()
+        self.camera.rotation = 180
         self.camera.resolution = MAX_RES
         self.updateBusyState(True)
         self.camera.capture_sequence([previewFileName], 'jpeg', use_video_port=True)
@@ -294,6 +296,7 @@ class SocketHandler:
         print("Take photo")
         self.camera = picamera.PiCamera()
         self.applySettings()
+        self.camera.rotation = 180
         self.camera.resolution = MAX_RES
         self.updateBusyState(True)
 
