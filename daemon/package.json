@@ -1,12 +1,16 @@
 {
-  "name": "daemon",
-  "version": "0.0.1",
-  "description": "Scanner 3d daemon",
-  "dependencies": {
-    "ftp-client": "^0.2.2",
-    "mkdirp": "^0.5.1"
-  },
+  "name": "builder-feeder-container",
+  "version": "1.0.0",
+  "description": "Builder Feeder Container",
+  "author": "Roman Yefimchuk",
+  "license": "MIT",
   "scripts": {
-    "start": "node daemon.js"
+    "start": "node ./daemon.js",
+    "start:dev": "node ./daemon.js --config=./.configs/test-config.json"
+  },
+  "dependencies": {
+    "@3dg/builder-feeder": "^1.0.0",
+    "console-clear": "^1.1.1",
+    "semver": "^6.3.0"
   }
 }

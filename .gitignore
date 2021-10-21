@@ -3,4 +3,4 @@ node_modules
 photos
 server/photos
 server/preview
-settings.json
+erp-notifier.config.json
