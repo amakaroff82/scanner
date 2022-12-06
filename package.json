@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Scanner 3d app",
   "dependencies": {
-    "express": "^4.15.2",
+    "express": "^4.18.2",
     "fs-exists-sync": "^0.1.0",
     "ftp-client": "^0.2.2",
     "gulp": "^3.9.1",
